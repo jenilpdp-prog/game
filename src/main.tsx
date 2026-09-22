@@ -5,7 +5,7 @@ import "./styles.css";
 
 class AppBoundary extends Component<{children:ReactNode},{error:boolean}> {
   override state={error:false};
-  static override getDerivedStateFromError(){return {error:true};}
+  static getDerivedStateFromError(){return {error:true};}
   override componentDidCatch(_error:Error,_info:ErrorInfo){/* keep the recovery UI visible */}
   reset=()=>{try{localStorage.removeItem("emberfall.settings.v2");}catch{};location.reload();};
   override render(){
