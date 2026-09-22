@@ -2,8 +2,6 @@
   "include": [
     "src/main.tsx",
     "src/components/**/*.tsx",
-    "src/game/**/*.ts",
-    "src/game/**/*.tsx",
     "vite.config.ts"
   ],
   "exclude": [
@@ -11,14 +9,21 @@
     "src/routeTree.gen.ts",
     "src/routes/**",
     "src/server.ts",
-    "src/start.ts"
+    "src/start.ts",
+    "src/game/**"
   ],
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
     "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["vite/client"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "vite/client"
+    ],
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
@@ -35,7 +40,9 @@
     "exactOptionalPropertyTypes": false,
     "noUncheckedSideEffectImports": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   }
 }
