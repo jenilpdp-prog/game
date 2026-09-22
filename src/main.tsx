@@ -1,13 +1,14 @@
-import { Component, createRoot, type ErrorInfo, type ReactNode } from "react";
+import { Component, type ErrorInfo, type ReactNode } from "react";
+import { createRoot } from "react-dom/client";
 import Game from "./components/Game";
 import "./styles.css";
 
 class AppBoundary extends Component<{children:ReactNode},{error:boolean}> {
-  state={error:false};
-  static getDerivedStateFromError(){return {error:true};}
-  componentDidCatch(_error:Error,_info:ErrorInfo){/* keep the recovery UI visible */}
+  override state={error:false};
+  static override getDerivedStateFromError(){return {error:true};}
+  override componentDidCatch(_error:Error,_info:ErrorInfo){/* keep the recovery UI visible */}
   reset=()=>{try{localStorage.removeItem("emberfall.settings.v2");}catch{};location.reload();};
-  render(){
+  override render(){
     if(!this.state.error)return this.props.children;
     return <main style={{minHeight:"100vh",display:"grid",placeItems:"center",background:"#09070d",color:"#fff",fontFamily:"system-ui",padding:24}}>
       <section style={{maxWidth:520,textAlign:"center",padding:32,border:"1px solid #3a263d",borderRadius:20,background:"#120d17",boxShadow:"0 20px 80px #0008"}}>
