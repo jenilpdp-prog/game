@@ -6,7 +6,8 @@ type Quality = "low" | "medium" | "high";
 type Player = { x:number;y:number;hp:number;maxHp:number;speed:number;fire:number;fireRate:number;dashCd:number;dashCooldown:number;abilityCd:number;abilityRate:number;ability:Ability;abilityActive:number;color:string;dead:boolean;level:number;xp:number;nextXp:number;damage:number;shots:number;crit:number;critMult:number;armor:number;regen:number;lifesteal:number;bossBonus:number;abilityPower:number;creditBonus:number;score:number };
 type Enemy = { x:number;y:number;r:number;hp:number;maxHp:number;speed:number;damage:number;kind:"husk"|"shooter"|"charger"|"splitter"|"boss";elite:boolean;phase:number };
 type Bullet = { x:number;y:number;vx:number;vy:number;damage:number;life:number;enemy:boolean;r:number;owner:number };
-type Settings = { quality:Quality;shake:boolean;particles:boolean;fps:boolean;zoom:number;difficulty:"normal"|"hard";keys:Record<string,string> };
+type ControlKeys = { p1up:string;p1down:string;p1left:string;p1right:string;p1dash:string;p1ability:string;p2up:string;p2down:string;p2left:string;p2right:string;p2dash:string;p2ability:string };
+type Settings = { quality:Quality;shake:boolean;particles:boolean;fps:boolean;zoom:number;difficulty:"normal"|"hard";keys:ControlKeys };
 const W=1200,H=675,MAX_WAVE=40;
 const defaults:Settings={quality:"high",shake:true,particles:true,fps:false,zoom:1,difficulty:"normal",keys:{p1up:"KeyW",p1down:"KeyS",p1left:"KeyA",p1right:"KeyD",p1dash:"Space",p1ability:"KeyE",p2up:"ArrowUp",p2down:"ArrowDown",p2left:"ArrowLeft",p2right:"ArrowRight",p2dash:"ShiftRight",p2ability:"Numpad0"}};
 const upgrades=[
